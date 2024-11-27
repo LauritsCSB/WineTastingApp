@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace WineTastingApp.Models
 {
-    public class Winery
+    public class Appellation
     {
         public string ?Name { get; set; }
         public Region Region { get; set; } = new Region();
 
-        public void Validate() 
+        public void Validate()
         {
-            if (string.IsNullOrEmpty(Name)) 
-                throw new ArgumentException("Winery name is required");
+            if (string.IsNullOrEmpty(Name))
+                throw new ArgumentException("Appelation name is required");
             if (Region == null)
                 throw new ArgumentException("Region data is required");
         }
-
     }
 }

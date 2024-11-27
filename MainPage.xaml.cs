@@ -1,201 +1,73 @@
-﻿using System;
-using System.Linq;
-using WineTastingApp.Models;
+﻿using WineTastingApp.Models;
 using WineTastingApp.Services;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections;
 
 namespace WineTastingApp
 {
     public partial class MainPage : ContentPage
     {
+        private Tasting _tasting;
         public MainPage()
         {
             InitializeComponent();
-            InitializePickers();
+            _tasting = new Tasting();
         }
 
-        private void InitializePickers()
+        // Handle date selection
+        private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            //TODO Pickers related to tasting that arent "notes"
-
-            // Smell Primary Notes
-            SmellPrimaryFlowerPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Flower)).ToList();
-            SmellPrimaryTreeFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.TreeFruit)).ToList();
-            SmellPrimaryTropicalFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.TropicalFruit)).ToList();
-            SmellPrimaryRedFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.RedFruit)).ToList();
-            SmellPrimaryBlackFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.BlackFruit)).ToList();
-            SmellPrimaryDriedFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.DriedFruit)).ToList();
-            SmellPrimaryNobleRotPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.NobleRot)).ToList();
-            SmellPrimarySpicePicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Spice)).ToList();
-            SmellPrimaryVegetablePicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Vegetable)).ToList();
-            SmellPrimaryEarthPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Earth)).ToList();
-
-            // Smell Secondary Notes
-            SmellSecondaryMicrobialPicker.ItemsSource = Enum.GetNames(typeof(SecondaryNotesEnums.Microbial)).ToList();
-
-            // Smell Tertiary Notes
-            SmellTertiaryOakAgingPicker.ItemsSource = Enum.GetNames(typeof(TertiaryNotesEnums.Oak)).ToList();
-            SmellTertiaryGeneralAgingPicker.ItemsSource = Enum.GetNames(typeof(TertiaryNotesEnums.GeneralAging)).ToList();
-
-            // Palate Primary Notes
-            PalatePrimaryFlowerPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Flower)).ToList();
-            PalatePrimaryTreeFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.TreeFruit)).ToList();
-            PalatePrimaryTropicalFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.TropicalFruit)).ToList();
-            PalatePrimaryRedFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.RedFruit)).ToList();
-            PalatePrimaryBlackFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.BlackFruit)).ToList();
-            PalatePrimaryDriedFruitPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.DriedFruit)).ToList();
-            PalatePrimaryNobleRotPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.NobleRot)).ToList();
-            PalatePrimarySpicePicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Spice)).ToList();
-            PalatePrimaryVegetablePicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Vegetable)).ToList();
-            PalatePrimaryEarthPicker.ItemsSource = Enum.GetNames(typeof(PrimaryNotesEnums.Earth)).ToList();
-
-            //Palate Notes
-            PalateSweetnessPicker.ItemsSource = Enum.GetNames(typeof(PalateNotesEnums.Sweetness)).ToList();
-            PalateAcidityPicker.ItemsSource = Enum.GetNames(typeof(PalateNotesEnums.Acidity)).ToList();
-            PalateTanninPicker.ItemsSource = Enum.GetNames(typeof(PalateNotesEnums.Tannin)).ToList();
-            PalateNaturePicker.ItemsSource = Enum.GetNames(typeof(PalateNotesEnums.Nature)).ToList();
-
-            // Palate Secondary Notes
-            PalateSecondaryMicrobialPicker.ItemsSource = Enum.GetNames(typeof(SecondaryNotesEnums.Microbial)).ToList();
-
-            // Palate Tertiary Notes
-            PalateTertiaryOakAgingPicker.ItemsSource = Enum.GetNames(typeof(TertiaryNotesEnums.Oak)).ToList();
-            PalateTertiaryGeneralAgingPicker.ItemsSource = Enum.GetNames(typeof(TertiaryNotesEnums.GeneralAging)).ToList();
+            _tasting.Date = e.NewDate;
         }
-        //TODO OnSaveClicked
-        private void OnSaveClicked(object sender, EventArgs e)
+        // Handle occasion entry
+        private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var visualNotes = new VisualNotes
-            {
-                Clarity = (VisualNotes.ClarityEnum)Enum.Parse(typeof(VisualNotes.ClarityEnum), (string)ClarityPicker.SelectedItem),
-                Intensity = (VisualNotes.IntensityEnum)Enum.Parse(typeof(VisualNotes.IntensityEnum), (string)IntensityPicker.SelectedItem),
-                Color = (VisualNotes.ColorEnum)Enum.Parse(typeof(VisualNotes.ColorEnum), (string)ColorPicker.SelectedItem),
-                OtherObservations = new List<string>()
-            };
-
-            var smellNotes = new SmellNotes
-            {
-                Intensity = (int)SmellIntensitySlider.Value,
-
-                PrimaryAroma = new PrimaryNotes
-                {
-                    Flowers = GetSelectedItems<PrimaryNotesEnums.Flower>(SmellPrimaryFlowerPicker),
-                    TreeFruits = GetSelectedItems<PrimaryNotesEnums.TreeFruit>(SmellPrimaryTreeFruitPicker),
-                    TropicalFruits = GetSelectedItems<PrimaryNotesEnums.TropicalFruit>(SmellPrimaryTropicalFruitPicker),
-                    RedFruits = GetSelectedItems<PrimaryNotesEnums.RedFruit>(SmellPrimaryRedFruitPicker),
-                    BlackFruits = GetSelectedItems<PrimaryNotesEnums.BlackFruit>(SmellPrimaryBlackFruitPicker),
-                    DriedFruits = GetSelectedItems<PrimaryNotesEnums.DriedFruit>(SmellPrimaryDriedFruitPicker),
-                    NobleRots = GetSelectedItems<PrimaryNotesEnums.NobleRot>(SmellPrimaryNobleRotPicker),
-                    Spices = GetSelectedItems<PrimaryNotesEnums.Spice>(SmellPrimarySpicePicker),
-                    Vegetables = GetSelectedItems<PrimaryNotesEnums.Vegetable>(SmellPrimaryVegetablePicker),
-                    Earths = GetSelectedItems<PrimaryNotesEnums.Earth>(SmellPrimaryEarthPicker)
-                },
-                SecondaryAroma = new SecondaryNotes
-                {
-                    Microbials = GetSelectedItems<SecondaryNotesEnums.Microbial>(SmellSecondaryMicrobialPicker)
-                },
-                TertiaryAroma = new TertiaryNotes
-                {
-                    Oaks = GetSelectedItems<TertiaryNotesEnums.Oak>(SmellTertiaryOakAgingPicker),
-                    GeneralAging = GetSelectedItems<TertiaryNotesEnums.GeneralAging>(SmellTertiaryGeneralAgingPicker)
-                },
-                FaultyAroma = new FaultNotes
-                {
-                    Faults = GetSelectedItems<FaultNotesEnums.FaultType>(SmellFaultPicker)
-                }
-            };
-
-            var palateNotes = new PalateNotes
-            {
-                Sweetness = (PalateNotesEnums.Sweetness)Enum.Parse(typeof(PalateNotesEnums.Sweetness), PalateSweetnessPicker.SelectedItem.ToString()),
-                Acidity = (PalateNotesEnums.Acidity)Enum.Parse(typeof(PalateNotesEnums.Acidity), PalateAcidityPicker.SelectedItem.ToString()),
-                Tannin = (PalateNotesEnums.Tannin)Enum.Parse(typeof(PalateNotesEnums.Tannin), PalateTanninPicker.SelectedItem.ToString()),
-                Nature = (PalateNotesEnums.Nature)Enum.Parse(typeof(PalateNotesEnums.Nature), PalateNaturePicker.SelectedItem.ToString()),
-
-                PrimaryFlavor = new PrimaryNotes
-                {
-                    Flowers = GetSelectedItems<PrimaryNotesEnums.Flower>(PalatePrimaryFlowerPicker),
-                    TreeFruits = GetSelectedItems<PrimaryNotesEnums.TreeFruit>(PalatePrimaryTreeFruitPicker),
-                    TropicalFruits = GetSelectedItems<PrimaryNotesEnums.TropicalFruit>(PalatePrimaryTropicalFruitPicker),
-                    RedFruits = GetSelectedItems<PrimaryNotesEnums.RedFruit>(PalatePrimaryRedFruitPicker),
-                    BlackFruits = GetSelectedItems<PrimaryNotesEnums.BlackFruit>(PalatePrimaryBlackFruitPicker),
-                    DriedFruits = GetSelectedItems<PrimaryNotesEnums.DriedFruit>(PalatePrimaryDriedFruitPicker),
-                    NobleRots = GetSelectedItems<PrimaryNotesEnums.NobleRot>(PalatePrimaryNobleRotPicker),
-                    Spices = GetSelectedItems<PrimaryNotesEnums.Spice>(PalatePrimarySpicePicker),
-                    Vegetables = GetSelectedItems<PrimaryNotesEnums.Vegetable>(PalatePrimaryVegetablePicker),
-                    Earths = GetSelectedItems<PrimaryNotesEnums.Earth>(PalatePrimaryEarthPicker)
-                }
-            };
+            _tasting.Occasion = e.NewTextValue;
         }
 
-        //TODO OnViewClicked
-        private void OnViewClicked(object sender, EventArgs e)
+        // Handle navigation buttons
+        private async void OnBottlePageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BottlePage(_tasting));
+        }
+
+        private async void OnVisualPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VisualPage(_tasting));
+        }
+        private async void OnSmellPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SmellPage(_tasting));
+        }
+        private async void OnPalatePageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PalatePage(_tasting));
+        }
+
+        // Handle save button
+        private async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             try
             {
-                var tasting = DataService.LoadTastingFromJson();
-                DisplayTastingData(tasting);
+                _tasting.Validate();
+
+                await Task.Run(() => DataService.SaveTastingToJson(_tasting));
+
+                await DisplayAlert("Success", "Tasting saved successfully.", "OK");
             }
-            catch
+            catch (ArgumentException ex)
             {
-                DisplayAlert("Error", "No saved data found.", "OK");
+                await DisplayAlert("Error", ex.Message, "OK");
             }
-        }
-
-        private void DisplayTastingData(Tasting tasting)
-        {
-            var tastingDataDetails = new System.Text.StringBuilder();
-
-            // Basic information
-            tastingDataDetails.AppendLine($"Date: {tasting.Date}");
-            tastingDataDetails.AppendLine($"Occasion: {tasting.Occasion}");
-            tastingDataDetails.AppendLine($"Wine Name: {tasting.Bottle.Name}");
-            tastingDataDetails.AppendLine($"Winery: {tasting.Bottle.Winery}");
-            tastingDataDetails.AppendLine($"Vintage: {tasting.Bottle.Vintage}");
-
-            // Loops to interate each property list
-            AppendNotes(tastingDataDetails, "Visual Notes", tasting.VisualNotes);
-            AppendNotes(tastingDataDetails, "Smell Notes", tasting.SmellNotes);
-            AppendNotes(tastingDataDetails, "Palate Notes", tasting.PalateNotes);
-
-            
-            
-        }
-
-        private void AppendNotes(StringBuilder tastingDetails, string sectionTitle, object notes)
-        {
-            tastingDetails.AppendLine($"{sectionTitle}");
-
-            foreach (var property in notes.GetType().GetProperties())
+            catch (Exception ex)
             {
-                var value = property.GetValue(notes);
-
-                if (value is IList list)
-                {
-                    tastingDetails.AppendLine($"{property.Name}");
-                    foreach (var item in list)
-                    {
-                        tastingDetails.AppendLine($"{item}");
-                    }
-                }
-                else
-                {
-                    tastingDetails.AppendLine($"{property.Name}: {value}");
-                }
+                await DisplayAlert("Error", "An unexpected error occurred: " + ex.Message, "OK");
             }
         }
 
-        private List<T> GetSelectedItems<T>(Picker picker)
+
+        //Handle view saved data button
+        private async void OnViewSavedDataClicked(object sender, EventArgs e)
         {
-            var selectedItems = new List<T>();
-            foreach (var item in picker.ItemsSource)
-            {
-                selectedItems.Add((T)Enum.Parse(typeof(T), item.ToString()));
-            }
-            return selectedItems;
+            await Navigation.PushAsync(new ViewSavedDataPage());
         }
-        
     }
 }

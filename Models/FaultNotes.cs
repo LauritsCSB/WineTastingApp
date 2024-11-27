@@ -8,6 +8,11 @@ namespace WineTastingApp.Models
 {
     public class FaultNotes
     {
-        public List<FaultNotesEnums.FaultType> Faults { get; set; }
+        public List<string> Faults { get; set; }
+
+        public FaultNotes() 
+        {
+            Faults = new List<string>();
+        }
     }
 }

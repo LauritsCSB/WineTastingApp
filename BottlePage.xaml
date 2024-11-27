@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WineTastingApp.BottlePage"
+             Title="BottlePage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Bottle Data" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <Label Text="Wine Bottle Details" FontAttributes="Bold"/>
+
+            <Label Text="Wine Name"/>
+            <Entry x:Name="WineNameEntry" />
+
+            <Label Text="Winery Name"/>
+            <Entry x:Name="WineryEntry" />
+
+            <Label Text="Type" />
+            <Entry x:Name="TypeEntry" />
+
+            <Label Text="Coming soon: Grape Name"/>
+            <Entry x:Name="Grape"/>
+            
+            <Label Text="Vintage"/>
+            <DatePicker x:Name="VintagePicker" Format="yyyy"/>
+            
+            <Label Text="Country of origin" />
+            <Entry x:Name="CountryEntry" />
+
+            <Label Text="Region of origin"/>
+            <Entry x:Name="RegionEntry" />
+
+            <Label Text="Appelation"/>
+            <Entry x:Name="AppelationEntry" />
+
+            <Button Text="Save" Clicked="OnSaveButtonClicked" HorizontalOptions="Fill"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WineTastingApp.SmellPage"
+             Title="SmellPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Smell Notes" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+           
+            <!--Intensity Slider-->
+            <Label Text="Intensity"/>
+            <StackLayout Orientation="Horizontal">
+                <Slider x:Name="SmellIntensitySlider" Maximum="10" Minimum="0" Value="5" ValueChanged="OnSmellIntensitySliderValueChanged"/>
+                <Label x:Name="SmellIntensityValueLabel" Text="5" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <!-- Flower CheckBoxes -->
+            <Label Text="Primary Flower Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="IrisCheckBox" ClassId="PrimaryAroma:Flowers:Iris" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Iris" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PeonyCheckBox" ClassId="PrimaryAroma:Flowers:Peony" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Peony" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ElderflowerCheckBox" ClassId="PrimaryAroma:Flowers:Elderflower" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Elderflower" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ArcaciaCheckBox" ClassId="PrimaryAroma:Flowers:Arcacia" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Arcacia" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LilacCheckBox" ClassId="PrimaryAroma:Flowers:Lilac" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Lilac" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="JasmineCheckBox" ClassId="PrimaryAroma:Flowers:Jasmine" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Jasmine" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="HoneysuckleCheckBox" ClassId="PrimaryAroma:Flowers:Honeysuckle" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Honeysuckle" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="VioletCheckBox" ClassId="PrimaryAroma:Flowers:Violet" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Violet" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LavenderCheckBox" ClassId="PrimaryAroma:Flowers:Lavender" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Lavender" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="RoseCheckBox" ClassId="PrimaryAroma:Flowers:Rose" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Rose" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PotpourriCheckBox" ClassId="PrimaryAroma:Flowers:Potpourri" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Potpourri" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="HibiscusCheckBox" ClassId="PrimaryAroma:Flowers:Hibiscus" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Hibiscus" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CitrusCheckBox" ClassId="PrimaryAroma:Flowers:Citrus" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Citrus" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LimeCheckBox" ClassId="PrimaryAroma:Flowers:Lime" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Lime" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LemonCheckBox" ClassId="PrimaryAroma:Flowers:Lemon" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Lemon" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="GrapefruitCheckBox" ClassId="PrimaryAroma:Flowers:Grapefruit" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Grapefruit" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="OrangeCheckBox" ClassId="PrimaryAroma:Flowers:Orange" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Orange" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="MarmaladeCheckBox" ClassId="PrimaryAroma:Flowers:Marmalade" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Marmalade" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <!-- Tree Fruit CheckBoxes -->
+            <Label Text="Primary Tree Fruit Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="QuinceCheckBox" ClassId="PrimaryAroma:TreeFruits:Quince" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Quince" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="AppleCheckBox" ClassId="PrimaryAroma:TreeFruits:Apple" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Apple" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PearCheckBox" ClassId="PrimaryAroma:TreeFruits:Pear" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Pear" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="NectarineCheckBox" ClassId="PrimaryAroma:TreeFruits:Nectarine" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Nectarine" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PeachCheckBox" ClassId="PrimaryAroma:TreeFruits:Peach" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Peach" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ApricotCheckBox" ClassId="PrimaryAroma:TreeFruits:Apricot" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Apricot" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PersimmonCheckBox" ClassId="PrimaryAroma:TreeFruits:Persimmon" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Persimmon" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Tropical Fruit Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PineappleCheckBox" ClassId="PrimaryAroma:TropicalFruits:Pineapple" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Pineapple" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="MangoCheckBox" ClassId="PrimaryAroma:TropicalFruits:Mango" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Mango" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="GuavaCheckBox" ClassId="PrimaryAroma:TropicalFruits:Guava" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Guava" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PassionFruitCheckBox" ClassId="PrimaryAroma:TropicalFruits:PassionFruit" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="PassionFruit" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LycheeCheckBox" ClassId="PrimaryAroma:TropicalFruits:Lychee" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Lychee" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BubblegumCheckBox" ClassId="PrimaryAroma:TropicalFruits:Bubblegum" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Bubblegum" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Red Fruit Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CranberryCheckBox" ClassId="PrimaryAroma:RedFruits:Cranberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cranberry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="RedPlumCheckBox" ClassId="PrimaryAroma:RedFruits:RedPlum" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Red Plum" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PomegranateCheckBox" ClassId="PrimaryAroma:RedFruits:Pomegranate" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Pomegranate" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="SourCherryCheckBox" ClassId="PrimaryAroma:RedFruits:SourCherry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Sour Cherry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="StrawberryCheckBox" ClassId="PrimaryAroma:RedFruits:Strawberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Strawberry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CherryCheckBox" ClassId="PrimaryAroma:RedFruits:Cherry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cherry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="RaspberryCheckBox" ClassId="PrimaryAroma:RedFruits:Raspberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Raspberry" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Black Fruit Notes" />
+            <HorizontalStackLayout>
+                <Label Text="Primary Black Fruit Notes" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BoysenberryCheckBox" ClassId="PrimaryAroma:BlackFruits:Boysenberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Boysenberry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BlackCurrantCheckBox" ClassId="PrimaryAroma:BlackFruits:BlackCurrant" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Black Currant" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BlackCherryCheckBox" ClassId="PrimaryAroma:BlackFruits:BlackCherry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Black Cherry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PlumCheckBox" ClassId="PrimaryAroma:BlackFruits:Plum" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Plum" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BlackberryCheckBox" ClassId="PrimaryAroma:BlackFruits:Blackberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Blackberry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BlueberryCheckBox" ClassId="PrimaryAroma:BlackFruits:Blueberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Blueberry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="OliveCheckBox" ClassId="PrimaryAroma:BlackFruits:Olive" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Olive" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Dried Fruit Notes" />
+            <HorizontalStackLayout>
+                <Label Text="Primary Dried Fruit Notes" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="RaisinCheckBox" ClassId="PrimaryAroma:DriedFruits:Raisin" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Raisin" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="FigCheckBox" ClassId="PrimaryAroma:DriedFruits:Fig" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Fig" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="DateCheckBox" ClassId="PrimaryAroma:DriedFruits:Date" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Date" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="FruitcakeCheckBox" ClassId="PrimaryAroma:DriedFruits:Fruitcake" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Fruitcake" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Noble Rot Notes" />
+            <HorizontalStackLayout>
+                <Label Text="Primary Noble Rot Notes" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BeeswaxCheckBox" ClassId="PrimaryAroma:NobleRot:Beeswax" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Beeswax" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="GingerCheckBox" ClassId="PrimaryAroma:NobleRot:Ginger" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Ginger" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="HoneyCheckBox" ClassId="PrimaryAroma:NobleRot:Honey" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Honey" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Spice Notes" />
+            <HorizontalStackLayout>
+                <Label Text="Primary Spice Notes" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="WhitePepperCheckBox" ClassId="PrimaryAroma:Spice:WhitePepper" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="White Pepper" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="RedPepperCheckBox" ClassId="PrimaryAroma:Spice:RedPepper" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Red Pepper" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BlackPepperCheckBox" ClassId="PrimaryAroma:Spice:BlackPepper" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Black Pepper" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CinnamonCheckBox" ClassId="PrimaryAroma:Spice:Cinnamon" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cinnamon" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="AniseCheckBox" ClassId="PrimaryAroma:Spice:Anise" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Anise" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="FiveSpiceCheckBox" ClassId="PrimaryAroma:Spice:FiveSpice" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Five Spice" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="FennelCheckBox" ClassId="PrimaryAroma:Spice:Fennel" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Fennel" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="EucalyptusCheckBox" ClassId="PrimaryAroma:Spice:Eucalyptus" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Eucalyptus" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="MintCheckBox" ClassId="PrimaryAroma:Spice:Mint" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Mint" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ThymeCheckBox" ClassId="PrimaryAroma:Spice:Thyme" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Thyme" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Vegetable Notes" />
+            <HorizontalStackLayout>
+                <Label Text="Primary Vegetable Notes" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="GrassCheckBox" ClassId="PrimaryAroma:Vegetable:Grass" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Grass" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="TomatoLeafCheckBox" ClassId="PrimaryAroma:Vegetable:TomatoLeaf" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Tomato Leaf" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="GooseberryCheckBox" ClassId="PrimaryAroma:Vegetable:Gooseberry" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Gooseberry" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BellPepperCheckBox" ClassId="PrimaryAroma:Vegetable:BellPepper" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Bell Pepper" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="JalapeñoCheckBox" ClassId="PrimaryAroma:Vegetable:Jalapeño" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Jalapeño" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BitterAlmondCheckBox" ClassId="PrimaryAroma:Vegetable:BitterAlmond" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Bitter Almond" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="TomatoCheckBox" ClassId="PrimaryAroma:Vegetable:Tomato" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Tomato" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="SunDriedTomatoCheckBox" ClassId="PrimaryAroma:Vegetable:SunDriedTomato" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Sun-Dried Tomato" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BlackTeaCheckBox" ClassId="PrimaryAroma:Vegetable:BlackTea" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Black Tea" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Primary Earth Notes" />
+            <HorizontalStackLayout>
+                <Label Text="Primary Earth Notes" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ClayPotCheckBox" ClassId="PrimaryAroma:Earth:ClayPot" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Clay Pot" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="SlateCheckBox" ClassId="PrimaryAroma:Earth:Slate" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Slate" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="WetGravelCheckBox" ClassId="PrimaryAroma:Earth:WetGravel" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Wet Gravel" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PottingSoilCheckBox" ClassId="PrimaryAroma:Earth:PottingSoil" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Potting Soil" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="RedBeetCheckBox" ClassId="PrimaryAroma:Earth:RedBeet" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Red Beet" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="VolcanicRocksCheckBox" ClassId="PrimaryAroma:Earth:VolcanicRocks" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Volcanic Rocks" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="PetroleumCheckBox" ClassId="PrimaryAroma:Earth:Petroleum" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Petroleum" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Secondary Microbial Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ButterCheckBox" ClassId="SecondaryAroma:Microbial:Butter" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Butter" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CreamCheckBox" ClassId="SecondaryAroma:Microbial:Cream" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cream" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="SourdoughCheckBox" ClassId="SecondaryAroma:Microbial:Sourdough" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Sourdough" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LagerCheckBox" ClassId="SecondaryAroma:Microbial:Lager" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Lager" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="TruffleCheckBox" ClassId="SecondaryAroma:Microbial:Truffle" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Truffle" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="MushroomCheckBox" ClassId="SecondaryAroma:Microbial:Mushroom" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Mushroom" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Tertiary Oak Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="VanillaCheckBox" ClassId="TertiaryAroma:Oak:Vanilla" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Vanilla" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CoconutCheckBox" ClassId="TertiaryAroma:Oak:Coconut" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Coconut" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BakingSpicesCheckBox" ClassId="TertiaryAroma:Oak:BakingSpices" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Baking Spices" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CigarboxCheckBox" ClassId="TertiaryAroma:Oak:Cigarbox" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cigarbox" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="SmokeCheckBox" ClassId="TertiaryAroma:Oak:Smoke" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Smoke" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="DillCheckBox" ClassId="TertiaryAroma:Oak:Dill" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Dill" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Tertiary General Aging Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="DriedFruitCheckBox" ClassId="TertiaryAroma:GeneralAging:DriedFruit" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Dried Fruit" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="NuttyFlavorsCheckBox" ClassId="TertiaryAroma:GeneralAging:NuttyFlavors" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Nutty Flavors" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="TobaccoCheckBox" ClassId="TertiaryAroma:GeneralAging:Tobacco" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Tobacco" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CoffeeCheckBox" ClassId="TertiaryAroma:GeneralAging:Coffee" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Coffee" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CocoaCheckBox" ClassId="TertiaryAroma:GeneralAging:Cocoa" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cocoa" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="LeatherCheckBox" ClassId="TertiaryAroma:GeneralAging:Leather" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Leather" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Label Text="Fault Type Notes" />
+            <HorizontalStackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CorkCheckBox" ClassId="FaultAroma:FaultType:Cork" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cork" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="CookedCheckBox" ClassId="FaultAroma:FaultType:Cooked" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Cooked" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="VolatileAcidityCheckBox" ClassId="FaultAroma:FaultType:VolatileAcidity" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Volatile Acidity" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="SulfidesCheckBox" ClassId="FaultAroma:FaultType:Sulfides" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Sulfides and Mercaptans" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="BrettanomyceCheckBox" ClassId="FaultAroma:FaultType:Brettanomyce" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                    <Label Text="Brettanomyce" VerticalOptions="Center"/>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+            <Button Text="Save" Clicked="OnSaveButtonClicked" HorizontalOptions="Fill"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

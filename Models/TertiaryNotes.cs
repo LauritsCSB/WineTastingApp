@@ -8,7 +8,13 @@ namespace WineTastingApp.Models
 {
     public class TertiaryNotes
     {
-        public List<TertiaryNotesEnums.Oak> Oaks { get; set; }
-        public List<TertiaryNotesEnums.GeneralAging> GeneralAging { get; set; }
+        public List<string> Oaks { get; set; }
+        public List<string> GeneralAging { get; set; }
+
+        public TertiaryNotes() 
+        {
+            Oaks = new List<string>();
+            GeneralAging = new List<string>();
+        }
     }
 }

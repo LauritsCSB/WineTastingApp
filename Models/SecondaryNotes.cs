@@ -8,6 +8,9 @@ namespace WineTastingApp.Models
 {
     public class SecondaryNotes
     {
-        public List<SecondaryNotesEnums.Microbial> Microbials {  get; set; }
+        public List<string> Microbials {  get; set; }
+
+        public SecondaryNotes()
+        {  Microbials = new List<string>();}
     }
 }

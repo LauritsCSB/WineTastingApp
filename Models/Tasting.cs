@@ -18,5 +18,26 @@ namespace WineTastingApp.Models
         public SmellNotes SmellNotes { get; set; }
 
         public PalateNotes PalateNotes { get; set; }
+
+        public Tasting()
+        {
+            Bottle = new WineBottle();
+            VisualNotes = new VisualNotes();
+            SmellNotes = new SmellNotes();
+            PalateNotes = new PalateNotes();
+        }
+        
+        public void Validate()
+        {
+            if (Date == default(DateTime))
+                throw new ArgumentException("Date is required.");
+            if (string.IsNullOrEmpty(Occasion))
+                throw new ArgumentException("Occasion is required.");
+            if (Bottle == null)
+                throw new ArgumentException("Bottle information is required");
+
+            Bottle.Validate();
+        }
     }
+
 }

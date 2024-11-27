@@ -13,10 +13,10 @@ namespace WineTastingApp.Models
         public TertiaryNotes TertiaryFlavor { get; set; }
         public FaultNotes FaultFlavor { get; set; }
 
-        public PalateNotesEnums.Sweetness Sweetness { get; set; }
-        public PalateNotesEnums.Acidity Acidity { get; set; }
-        public PalateNotesEnums.Tannin Tannin { get; set; }
-        public PalateNotesEnums.Nature Nature { get; set; }
+        public string Sweetness { get; set; }
+        public string Acidity { get; set; }
+        public string Tannin { get; set; }
+        public string Nature { get; set; }
 
         public PalateNotes()
         {

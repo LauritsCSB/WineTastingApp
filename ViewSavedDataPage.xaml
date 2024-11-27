@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WineTastingApp.ViewSavedDataPage"
+             Title="ViewSavedDataPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Saved Tasting Details" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+                    
+            <!-- Date -->
+            <Label Text="Date" FontAttributes="Bold" />
+            <Label x:Name="DateLabel" />
+            
+            <!-- Occasion -->
+            <Label Text="Occasion" FontAttributes="Bold" />
+            <Label x:Name="OccasionLabel" />
+            
+            <!-- Wine Bottle Details -->
+            <Label Text="Wine Bottle Details" FontSize="Medium" FontAttributes="Bold" />
+            
+            <Label Text="Wine Name" FontAttributes="Bold" />
+            <Label x:Name="WineNameLabel" />
+            
+            <Label Text="Winery" FontAttributes="Bold" />
+            <Label x:Name="WineryNameLabel" />
+            
+            <Label Text="Type" FontAttributes="Bold" />
+            <Label x:Name="WineTypeLabel" />
+            
+            <Label Text="Vintage" FontAttributes="Bold" />
+            <Label x:Name="VintageLabel" />
+            
+            <Label Text="Appellation" FontAttributes="Bold" />
+            <Label x:Name="AppellationLabel" />
+
+            <Label Text="Region" FontAttributes="Bold" />
+            <Label x:Name="RegionLabel" />
+
+            <Label Text="Country" FontAttributes="Bold" />
+            <Label x:Name="CountryLabel" />
+
+            <!-- Tasting Notes -->
+            <Label Text="Tasting Notes" FontSize="Medium" FontAttributes="Bold" />
+            
+            <Label Text="Visual Notes" FontAttributes="Bold" />
+            <Label x:Name="VisualNotesLabel" />
+            
+            <Label Text="Smell Notes" FontAttributes="Bold" />
+            <Label x:Name="SmellNotesLabel" />
+            
+            <Label Text="Palate Notes" FontAttributes="Bold" />
+            <Label x:Name="PalateNotesLabel" />
+            
+            <!--Visual Notes-->
+            <Label Text="Visual Notes" FontAttributes="Bold" />
+            
+            <Label Text="Clarity" FontAttributes="Bold" />
+            <Label x:Name="ClarityLabel" />
+            
+            <Label Text="Intensity" FontAttributes="Bold" />
+            <Label x:Name="IntensityLabel" />
+            
+            <Label Text="Color" FontAttributes="Bold" />
+            <Label x:Name="ColorLabel" />
+            
+            <!--Smell Notes-->
+            <Label Text="Smell Notes" FontAttributes="Bold" />
+            <StackLayout x:Name="SmellNotesStackLayout" />
+
+            <!--Palate Notes-->
+            <Label Text="Palate Notes" FontAttributes="Bold" />
+            <StackLayout x:Name="PalateNotesStackLayout" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

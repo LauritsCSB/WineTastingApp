@@ -32,6 +32,5 @@ namespace WineTastingApp.Models
         public ClarityEnum Clarity { get; set; }
         public IntensityEnum Intensity { get; set; }
         public ColorEnum Color { get; set; }
-        public List<string> OtherObservations { get; set; }
     }
 }

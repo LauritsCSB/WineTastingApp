@@ -4,180 +4,27 @@
              x:Class="WineTastingApp.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Label Text="Enter Tasting Details" FontSize="Large" HorizontalOptions="Center"/>
 
-            <Label
-                Text="Enter Tasting Details"
-                FontSize="Large"
-                HorizontalOptions="Center"/>
-            
+            <Label Text="Tasting Journal" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
             <!--Date-->
             <Label Text="Date"/>
-            <DatePicker x:Name="DatePicker"/>
+            <DatePicker x:Name="DatePicker" DateSelected="DatePicker_DateSelected"/>
             
             <!--Occasion-->
             <Label Text="Occasion"/>
-            <Entry x:Name="OccasionEntry"/>
+            <Entry x:Name="OccasionEntry" TextChanged="Entry_TextChanged"/>
             
-            <!--Wine Bottle Details-->
-            <Label Text="Wine Bottle Details" FontAttributes="Bold"/>
-
-            <Label Text="Wine Name"/>
-            <Entry x:Name="WineNameEntry"/>
-
-            <Label Text="Winery"/>
-            <Entry x:Name="WineryEntry"/>
-
-            <Label Text="Vintage"/>
-            <DatePicker x:Name="VintageDatePicker" Format="yyyy"/>
-
-            <!--Visual Notes-->
-            <Label Text="Visual Notes" FontAttributes="Bold"/>
-
-            <Label Text="Clarity"/>
-            <Picker x:Name="ClarityPicker">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Clear</x:String>
-                        <x:String>Hazy</x:String>
-                        <x:String>Cloudy</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Label Text="Intensity"/>
-            <Picker x:Name="IntensityPicker">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Pale</x:String>
-                        <x:String>Medium</x:String>
-                        <x:String>Deep</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Label Text="Color"/>
-            <Picker x:Name="ColorPicker">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Red</x:String>
-                        <x:String>White</x:String>
-                        <x:String>Rose</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <!--Navigation buttons-->
+            <Button Text="Bottle Data" Clicked="OnBottlePageClicked" />
+            <Button Text="Visual Data" Clicked="OnVisualPageClicked" />
+            <Button Text="Smell Notes" Clicked="OnSmellPageClicked" />
+            <Button Text="Palate Notes" Clicked="OnPalatePageClicked" />
             
-            <!--Smell Notes-->
-            <Label Text="Smell Notes" FontAttributes="Bold"/>
-            <Label Text="Intensity"/>
-            <Slider x:Name="SmellIntensitySlider" Maximum="10" Minimum="0" Value="5"/>
-
-            <Label Text="Primary Flower Notes" />
-            <Picker x:Name="SmellPrimaryFlowerPicker" Title="Select Flower Notes" />
-
-            <Label Text="Primary Tree Fruit Notes" />
-            <Picker x:Name="SmellPrimaryTreeFruitPicker" Title="Select Tree Fruit Notes" />
-
-            <Label Text="Primary Tropical Fruit Notes" />
-            <Picker x:Name="SmellPrimaryTropicalFruitPicker" Title="Select Tropical Fruit Notes" />
-
-            <Label Text="Primary Red Fruit Notes" />
-            <Picker x:Name="SmellPrimaryRedFruitPicker" Title="Select Red Fruit Notes" />
-
-            <Label Text="Primary Black Fruit Notes" />
-            <Picker x:Name="SmellPrimaryBlackFruitPicker" Title="Select Black Fruit Notes" />
-
-            <Label Text="Primary Dried Fruit Notes" />
-            <Picker x:Name="SmellPrimaryDriedFruitPicker" Title="Select Dried Fruit Notes" />
-
-            <Label Text="Primary Noble Rot Notes" />
-            <Picker x:Name="SmellPrimaryNobleRotPicker" Title="Select Noble Rot Notes" />
-
-            <Label Text="Primary Spice Notes" />
-            <Picker x:Name="SmellPrimarySpicePicker" Title="Select Spice Notes" />
-
-            <Label Text="Primary Vegetable Notes" />
-            <Picker x:Name="SmellPrimaryVegetablePicker" Title="Select Vegetable Notes" />
-
-            <Label Text="Primary Earth Notes" />
-            <Picker x:Name="SmellPrimaryEarthPicker" Title="Select Earth Notes" />
-
-            <Label Text="Secondary Microbial Notes" />
-            <Picker x:Name="SmellSecondaryMicrobialPicker" Title="Select Microbial Notes"/>
-
-            <Label Text="Tertiary Oak Aging Notes" />
-            <Picker x:Name="SmellTertiaryOakAgingPicker" Title="Select Oak Aging Notes" />
-
-            <Label Text="Tertiary General Aging Notes" />
-            <Picker x:Name="SmellTertiaryGeneralAgingPicker" Title="Select General Aging Notes" />
-
-            <Label Text="Fault Notes"/>
-            <Picker x:Name="SmellFaultPicker" Title="Select Fault Notes"/>
-
-            <!--Palate Notes-->
-            <Label Text="Palate Notes" FontAttributes="Bold"/>
-
-            <Label Text="Sweetness"/>
-            <Picker x:Name="PalateSweetnessPicker" Title="Select Level of Sweetness"/>
-
-            <Label Text="Acidity"/>
-            <Picker x:Name="PalateAcidityPicker" Title="Select Level of Acidity"/>
-            
-            <Label Text="Tannin"/>
-            <Picker x:Name="PalateTanninPicker" Title="Select Level og Tannin"/>
-
-            <Label Text="Nature"/>
-            <Picker x:Name="PalateNaturePicker" Title="Select the Nature of the Wine"/>
-
-            <Label Text="Primary Flower Notes" />
-            <Picker x:Name="PalatePrimaryFlowerPicker" Title="Select Flower Notes" />
-
-            <Label Text="Primary Tree Fruit Notes" />
-            <Picker x:Name="PalatePrimaryTreeFruitPicker" Title="Select Tree Fruit Notes" />
-
-            <Label Text="Primary Tropical Fruit Notes" />
-            <Picker x:Name="PalatePrimaryTropicalFruitPicker" Title="Select Tropical Fruit Notes" />
-
-            <Label Text="Primary Red Fruit Notes" />
-            <Picker x:Name="PalatePrimaryRedFruitPicker" Title="Select Red Fruit Notes" />
-
-            <Label Text="Primary Black Fruit Notes" />
-            <Picker x:Name="PalatePrimaryBlackFruitPicker" Title="Select Black Fruit Notes" />
-
-            <Label Text="Primary Dried Fruit Notes" />
-            <Picker x:Name="PalatePrimaryDriedFruitPicker" Title="Select Dried Fruit Notes" />
-
-            <Label Text="Primary Noble Rot Notes" />
-            <Picker x:Name="PalatePrimaryNobleRotPicker" Title="Select Noble Rot Notes" />
-
-            <Label Text="Primary Spice Notes" />
-            <Picker x:Name="PalatePrimarySpicePicker" Title="Select Spice Notes" />
-
-            <Label Text="Primary Vegetable Notes" />
-            <Picker x:Name="PalatePrimaryVegetablePicker" Title="Select Vegetable Notes" />
-
-            <Label Text="Primary Earth Notes" />
-            <Picker x:Name="PalatePrimaryEarthPicker" Title="Select Earth Notes" />
-
-            <Label Text="Secondary Microbial Notes" />
-            <Picker x:Name="PalateSecondaryMicrobialPicker" Title="Select Microbial Notes" />
-
-            <Label Text="Tertiary Oak Aging Notes" />
-            <Picker x:Name="PalateTertiaryOakAgingPicker" Title="Select Oak Aging Notes" />
-
-            <Label Text="Tertiary General Aging Notes" />
-            <Picker x:Name="PalateTertiaryGeneralAgingPicker" Title="Select General Aging Notes" />
-
-            <Label Text="Fault Notes"/>
-            <Picker x:Name="PalateFaultNotes" Title="Selec Fault Notes"/>
-
-            <!--Buttons-->
-            <Button Text="Save" Clicked="OnSaveClicked" HorizontalOptions="Fill"/>
-
-            <Button Text="View Saved Data" Clicked="OnViewClicked" HorizontalOptions="Fill"/>
-            
+            <!--Other buttons-->
+            <Button Text="Save" Clicked="OnSaveButtonClicked" HorizontalOptions="Fill"/>
+            <Button Text="View Saved Data" Clicked="OnViewSavedDataClicked" HorizontalOptions="Fill"/>
         </VerticalStackLayout>
     </ScrollView>
 

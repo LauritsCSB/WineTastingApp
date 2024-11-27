@@ -9,5 +9,11 @@ namespace WineTastingApp.Models
     public class Country
     {
         public string Name { get; set; }
+
+        public void Validate()
+        {
+            if (string.IsNullOrEmpty(Name))
+                throw new ArgumentException("Country name is required");
+        }
     }
 }

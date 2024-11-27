@@ -15,20 +15,33 @@ namespace WineTastingApp.Services
 
         public static void SaveTastingToJson(Tasting tasting)
         {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            string json = JsonSerializer.Serialize(tasting, options);
-            File.WriteAllText(FilePath, json);
-        }
+            string json = JsonSerializer.Serialize(tasting);
 
+            // Get the path to the user's Documents folder
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            // Combine the documents path with the desired file name
+            string filePath = Path.Combine(documentsPath, "tastingData.json");
+
+            File.WriteAllText(filePath, json);
+        }
         public static Tasting LoadTastingFromJson()
         {
-            if (File.Exists(FilePath))
+            if (!File.Exists(FilePath))
             {
                 throw new FileNotFoundException(FilePath);
             }
 
             string json = File.ReadAllText(FilePath);
-            return JsonSerializer.Deserialize<Tasting>(json);
+            Tasting? tasting = JsonSerializer.Deserialize<Tasting>(json);
+
+            if (tasting == null)
+            {
+                throw new InvalidOperationException("Deserialization resulted in a null object.");
+            }
+
+            return tasting;
         }
+
     }
 }
